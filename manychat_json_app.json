@@ -1,0 +1,153 @@
+{
+  "auth": {
+    "type": "APIKEY",
+    "params": [
+      {
+        "name": "server_url",
+        "title": "Your server URL"
+      },
+      {
+        "name": "manychat_api_key",
+        "title": "Enter your ManyChat API Key"
+      },
+      {
+        "name": "dialogflow_project_id",
+        "title": "Dialogflow Project ID"
+      },
+      {
+        "name": "dialogflow_agent_id",
+        "title": "Dialogflow Agent ID"
+      }
+    ],
+    "connection": []
+  },
+  "actions": [
+    {
+      "name": "dialogflow_bridge",
+      "forms": [
+        {
+          "name": "language",
+          "type": "select",
+          "title": "Language of your Dialogflow Agent.",
+          "source": "language_list"
+        },
+        {
+          "name": "df_text_input",
+          "type": "string",
+          "title": "Text input (if empty, last text input will be used).",
+          "default": ""
+        },
+        {
+          "name": "context",
+          "type": "string",
+          "title": "Context name if any.",
+          "default": ""
+        }
+      ],
+      "title": "Dialogflow Bridge",
+      "guidance": "1. Select the language of your Dialogflow agent.\n 2. Set the last user input.\n 3. Enter the context name if you want to use it.\n",
+      "requests": [
+        {
+          "url": "[[server_url]]",
+          "method": "POST",
+          "headers": [
+            "Content-Type: application/json"
+          ],
+          "mapping": [],
+          "payload": {
+            "server_url": "[[server_url]]",
+            "manychat_api_key": "[[manychat_api_key]]",
+            "dialogflow_project_id": "[[dialogflow_project_id]]",
+            "dialogflow_agent_id": "[[dialogflow_agent_id]]",
+            "user_id": "{{user_id}}",
+            "language": "[[language]]",
+            "context": "[[context]]",
+            "df_text_input": "[[df_text_input]]",
+            "last_input_text": "{{last_input_text}}"
+          }
+        }
+      ],
+      "description": "Connect Dialogflow to your ManyChat account."
+    }
+  ],
+  "sources": [
+    {
+      "name": "language_list",
+      "type": "enum:static",
+      "list": [
+        {
+          "key": "English",
+          "value": "en"
+        },
+        {
+          "key": "Spanish",
+          "value": "es"
+        },
+        {
+          "key": "French",
+          "value": "fr"
+        },
+        {
+          "key": "Italian",
+          "value": "it"
+        },
+        {
+          "key": "Russian",
+          "value": "ru"
+        },
+        {
+          "key": "Danish",
+          "value": "da"
+        },
+        {
+          "key": "Dutch",
+          "value": "nl"
+        },
+        {
+          "key": "German",
+          "value": "de"
+        },
+        {
+          "key": "Hindi",
+          "value": "hi"
+        },
+        {
+          "key": "Indonesian",
+          "value": "id"
+        },
+        {
+          "key": "Italian",
+          "value": "it"
+        },
+        {
+          "key": "Norwegian",
+          "value": "no"
+        },
+        {
+          "key": "Polish",
+          "value": "pl"
+        },
+        {
+          "key": "Portuguese",
+          "value": "pt"
+        },
+        {
+          "key": "Swedish",
+          "value": "sv"
+        },
+        {
+          "key": "Thai",
+          "value": "th"
+        },
+        {
+          "key": "Turkish",
+          "value": "tr"
+        },
+        {
+          "key": "Ukrainian",
+          "value": "uk"
+        }
+      ]
+    }
+  ]
+}
