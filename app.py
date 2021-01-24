@@ -1,11 +1,15 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+@app.route('/', methods=['GET', 'POST'])
+def connector():
+    if request.method == 'POST':
+        pass
+
+    else:
+        return 'I am alive!'
 
 
 if __name__ == '__main__':
