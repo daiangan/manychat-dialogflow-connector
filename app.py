@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def connector():
-    if request.method == 'POST':
 
+    if request.method == 'POST':
         request_data = request.get_json()
         psid = request_data['id']
         manychat_api_key = request_data['manychat_api_key']
@@ -63,6 +63,7 @@ def connector():
                 )
 
         return {}
+
 
     else:
         return 'I am alive!'
