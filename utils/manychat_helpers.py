@@ -19,6 +19,29 @@ class ManyChatAPI:
             'Authorization': f'Bearer {self.api_key}',
         }
 
+
+    def get_user_info(self) -> dict:
+        params = {
+            'subscriber_id': self.psid,
+        }
+
+        try:
+            response = requests.get(
+                url=f'{self.api_base_url}subscriber/getInfo',
+                headers=self.headers,
+                params=params,
+                timeout=5,
+            )
+        except Exception as e:
+            results = {
+                'status': 'error',
+                'message': e,
+            }
+        else:
+            results = json.loads(response.text)
+
+        return results
+
     def send_content(self, messages: list) -> dict:
         params = {
             'subscriber_id': self.psid,

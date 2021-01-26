@@ -47,7 +47,7 @@ class DialogFlowAPI:
         clean_response = df_response.text.replace(")]}'", "")
 
         results = json.loads(clean_response)
-        print(json.dumps(results, indent=4, sort_keys=True))
+        # print(json.dumps(results, indent=4, sort_keys=True))
 
         if 'fulfillmentMessages' in results['queryResult']:
             for message in results['queryResult']['fulfillmentMessages']:

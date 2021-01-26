@@ -18,14 +18,22 @@ def connector():
         last_input_text = request_data['last_input_text']
         language = request_data['language']
         context = request_data['context']
+        input_text = ''
 
         df = dialogflow_helpers.DialogFlowAPI(
             project_id=dialogflow_project_id,
             agent_id=dialogflow_agent_id,
         )
 
+        mc = manychat_helpers.ManyChatAPI(
+            api_key=manychat_api_key,
+            psid=psid,
+        )
+
         if df_text_input == '':
-            input_text = last_input_text
+            mc_user_info = mc.get_user_info()
+            if mc_user_info['status'] == 'success':
+                input_text = mc_user_info['data']['last_input_text']
         else:
             input_text = df_text_input
 
@@ -34,11 +42,6 @@ def connector():
             text=input_text,
             language_code=language,
             context=context if context != '' else None
-        )
-
-        mc = manychat_helpers.ManyChatAPI(
-            api_key=manychat_api_key,
-            psid=psid,
         )
 
         if dialogflow_response.parameters:

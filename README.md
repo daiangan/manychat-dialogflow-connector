@@ -34,6 +34,7 @@ Default Reply or any other flow inside ManyChat.
 
 This project is created and maintained by:
 <br>
+Daian Gan <br>
 Github: daiangan<br/>
 E-mail: daian@ganmedia.com<br/>
 Website: https://ganmedia.com<br/>
