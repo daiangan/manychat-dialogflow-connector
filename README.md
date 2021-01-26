@@ -7,6 +7,8 @@ If you will not handle too much traffic, you can host this project for free in [
 <br>
 Just fork the project inside Repl.it, hit RUN and copy your server URL.
 
+[![Run on Repl.it](https://repl.it/badge/github/daiangan/manychat-dialogflow-connector)](https://repl.it/github/daiangan/manychat-dialogflow-connector)
+
 ### Installation steps
 1. In your ManyChat account, go to My Profile - Applications and Create New Application.
 2. Enter the Name and Description of your App.
