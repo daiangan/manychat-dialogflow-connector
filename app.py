@@ -10,12 +10,11 @@ def connector():
 
     if request.method == 'POST':
         request_data = request.get_json()
-        psid = request_data['id']
+        psid = request_data['user_id']
         manychat_api_key = request_data['manychat_api_key']
         dialogflow_project_id = request_data['dialogflow_project_id']
         dialogflow_agent_id = request_data['dialogflow_agent_id']
         df_text_input = request_data['df_text_input']
-        last_input_text = request_data['last_input_text']
         language = request_data['language']
         context = request_data['context']
         input_text = ''
@@ -36,6 +35,9 @@ def connector():
                 input_text = mc_user_info['data']['last_input_text']
         else:
             input_text = df_text_input
+
+        if input_text == '':
+            return {}
 
         dialogflow_response = df.detect_intent(
             session_id=psid,
