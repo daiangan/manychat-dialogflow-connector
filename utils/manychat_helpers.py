@@ -19,7 +19,6 @@ class ManyChatAPI:
             'Authorization': f'Bearer {self.api_key}',
         }
 
-
     def get_user_info(self) -> dict:
         params = {
             'subscriber_id': self.psid,

@@ -3,6 +3,9 @@ Python-Flask project to connect ManyChat with Dialogflow.
 This project uses Dialogflow Web Demo integration to handle a simple 
 authentication and avoid complicated setup with Google Cloud credentials.
 
+If you will not handle too much traffic, you can host this project for free in [https://repl.it/](Repl.it)
+<br>
+Just fork the project inside Repl.it, hit RUN and copy your server URL.
 
 ### Installation steps
 1. In your ManyChat account, go to My Profile - Applications and Create New Application.
