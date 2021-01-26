@@ -9,6 +9,10 @@ authentication and avoid complicated setup with Google Cloud credentials.
 2. Enter the Name and Description of your App.
 3. Copy the content from [manychat_json_app.json](manychat_json_app.json) 
 and paste it in the JSON field.
+4. Go to the API Access tab and select the following permissions:
+- View contact data
+- Manage contact data
+- Send messages
 4. Save your App and go back to Applications list.
 5. Click in the right menu of your App and hit Install.
 6. Select the page you want to install your App and install it.
