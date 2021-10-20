@@ -49,6 +49,15 @@ class DialogFlowAPI:
         results = json.loads(clean_response)
         # print(json.dumps(results, indent=4, sort_keys=True))
 
+        if 'knowledgeAnswers' in results['queryResult']:
+            if results['queryResult']['knowledgeAnswers']['answers']:
+                response.messages.append(
+                    {
+                        'type': 'text',
+                        'message': results['queryResult']['knowledgeAnswers']['answers'][0]['answer'],
+                    }
+                )
+
         if 'fulfillmentMessages' in results['queryResult']:
             for message in results['queryResult']['fulfillmentMessages']:
                 if 'text' in message:
