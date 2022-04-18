@@ -35,7 +35,10 @@ it should be something like this: _35g03j8r-cb33-21fa-89yh-90705s43f581_
 16. Save your App settings.
 
 Now all you need to do is add your Dialogflow Connector App to your 
-Default Reply or any other flow inside ManyChat.
+Default Reply or any other flow inside ManyChat.  
+
+### Dialogflow system entities  
+If you use __sys.date-period__ you can add __startDate__ and __endDate__ to your ManyChat user fields.  
 
 
 

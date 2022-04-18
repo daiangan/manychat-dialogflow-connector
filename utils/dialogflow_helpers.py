@@ -47,7 +47,7 @@ class DialogFlowAPI:
         clean_response = df_response.text.replace(")]}'", "")
 
         results = json.loads(clean_response)
-        # print(json.dumps(results, indent=4, sort_keys=True))
+        print(json.dumps(results, indent=4, sort_keys=True))
 
         if 'knowledgeAnswers' in results['queryResult']:
             if results['queryResult']['knowledgeAnswers']['answers']:
@@ -89,10 +89,21 @@ class DialogFlowAPI:
 
         if 'parameters' in results['queryResult']:
             for key, value in results['queryResult']['parameters'].items():
-                response.parameters.append(
-                    {
-                        key: value
-                    }
-                )
+                if key == 'date-period':
+                    response.parameters += [
+                        {
+                            'startDate': value[0]['startDate']
+                        },
+                        {
+                            'endDate': value[0]['endDate']
+                        }
+                    ]
+
+                else:
+                    response.parameters.append(
+                        {
+                            key: value
+                        }
+                    )
 
         return response
