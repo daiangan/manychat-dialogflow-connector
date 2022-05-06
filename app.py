@@ -73,9 +73,8 @@ def connector():
 
         return response
 
-
     else:
-        return 'I am alive app!'
+        return 'I am alive!'
 
 
 if __name__ == '__main__':
