@@ -92,10 +92,28 @@ class DialogFlowAPI:
                 if key == 'date-period':
                     response.parameters += [
                         {
-                            'startDate': value[0]['startDate']
+                            'date-period.startDate': value[0]['startDate']
                         },
                         {
-                            'endDate': value[0]['endDate']
+                            'date-period.endDate': value[0]['endDate']
+                        }
+                    ]
+                if key == 'unit-area':
+                    response.parameters += [
+                        {
+                            'unit-area.amount': value[0]['amount']
+                        },
+                        {
+                            'unit-area.unit': value[0]['unit']
+                        }
+                    ]
+                if key == 'unit-currency':
+                    response.parameters += [
+                        {
+                            'unit-currency.amount': value[0]['amount']
+                        },
+                        {
+                            'unit-currency.currency': value[0]['unit']
                         }
                     ]
 
